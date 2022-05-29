@@ -5,6 +5,7 @@ import (
 	"math/rand"
 	"regexp"
 	"sort"
+	"strings"
 )
 
 type Word struct {
@@ -12,6 +13,9 @@ type Word struct {
 }
 
 func init() {
+	for idx, word := range validWords {
+		validWords[idx] = strings.ToUpper(word)
+	}
 	if !sort.StringsAreSorted(validWords) {
 		sort.Strings(validWords)
 	}
